@@ -1,0 +1,22 @@
+PAINEL DE SAUDE DA CLINICA
+
+COMO ABRIR
+1. Extraia a pasta Painel3_corrigido.zip.
+2. Entre na pasta Painel3_corrigido.
+3. Clique duas vezes em index.html. Ele abrirá no navegador padrão.
+4. Não é necessário instalar Python, Node.js, VS Code ou iniciar servidor.
+
+FUNCIONALIDADES
+- Cadastro de pacientes particulares e de convênio.
+- Campo de carteirinha habilitado somente para convênio.
+- Consulta de CEP pelo serviço ViaCEP.
+- Cálculo e classificação do IMC.
+- Tabela de pacientes.
+- Exclusão individual ou de todos os cadastros.
+- Salvamento local dos cadastros no navegador.
+
+IMPORTANTE
+- A consulta de CEP precisa de conexão com a internet.
+- Os cadastros ficam no armazenamento local do navegador e no perfil de usuário atual.
+- Se abrir o projeto em outro navegador ou computador, os cadastros não serão compartilhados.
+- Para evitar perder os dados, não limpe os dados do site/navegador.

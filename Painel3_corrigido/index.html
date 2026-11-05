@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel local de cadastro e acompanhamento de pacientes.">
+    <title>Painel de Saúde da Clínica</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Scripts clássicos permitem abrir este arquivo diretamente, sem servidor. -->
+    <script src="Paciente.js" defer></script>
+    <script src="PacienteConvenio.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <p class="subtitulo">CLÍNICA DE BEM-ESTAR</p>
+            <h1>Painel de Saúde</h1>
+            <p>Cadastro de pacientes e acompanhamento do Índice de Massa Corporal (IMC).</p>
+        </header>
+
+        <section class="painel" aria-labelledby="titulo-cadastro">
+            <h2 id="titulo-cadastro">Cadastro de paciente</h2>
+            <form id="form-paciente">
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" placeholder="Digite o nome do paciente" maxlength="100" required>
+                </div>
+
+                <div class="grade">
+                    <div class="campo">
+                        <label for="altura">Altura (metros)</label>
+                        <input type="number" id="altura" min="0.01" max="2.80" step="0.01" placeholder="Ex.: 1.75" required>
+                    </div>
+                    <div class="campo">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" min="0.1" max="500" step="0.1" placeholder="Ex.: 70.5" required>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="tipo-paciente">Tipo de atendimento</label>
+                    <select id="tipo-paciente" required>
+                        <option value="particular">Particular</option>
+                        <option value="convenio">Convênio</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="carteirinha">Número da carteirinha</label>
+                    <input type="text" id="carteirinha" placeholder="Preencha se for convênio" maxlength="40" disabled>
+                    <small>Este campo é habilitado quando Convênio for selecionado.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" inputmode="numeric" maxlength="9" placeholder="Ex.: 01001-000" autocomplete="postal-code" required>
+                    <small>A cidade e o estado serão preenchidos automaticamente ao sair do campo CEP. É necessária conexão com a internet.</small>
+                </div>
+
+                <div class="campo">
+                    <label for="cidade">Cidade / UF</label>
+                    <input type="text" id="cidade" placeholder="Preenchimento automático pelo ViaCEP" readonly required>
+                </div>
+
+                <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+                <button type="submit" id="botao-cadastrar">Cadastrar paciente</button>
+            </form>
+        </section>
+
+        <section class="painel" aria-labelledby="titulo-relatorio">
+            <div class="titulo-relatorio">
+                <h2 id="titulo-relatorio">Relatório de pacientes</h2>
+                <button type="button" id="limpar-todos" class="botao-secundario">Limpar todos</button>
+            </div>
+            <div class="tabela-responsiva">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                            <th>Carteirinha</th>
+                            <th>Cidade/UF</th>
+                            <th>Altura (m)</th>
+                            <th>Peso (kg)</th>
+                            <th>IMC</th>
+                            <th>Classificação</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-resultados">
+                        <tr><td colspan="9" class="vazio">Nenhum paciente cadastrado.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="aviso">Os dados ficam salvos neste navegador e neste computador. Não são enviados para um servidor.</p>
+        </section>
+
+        <footer>Projeto acadêmico — Painel de Saúde da Clínica de Bem-Estar</footer>
+    </main>
+</body>
+</html>
